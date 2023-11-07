@@ -1,0 +1,19 @@
+{% extends 'proTrack/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="login-box">
+  <h2 class="text-center">Iniciar sesión</h2>
+  <form class="login-form" method="post">
+    {% csrf_token %}
+    <div class="mb-3 text-center">
+      {{ form.username }}
+    </div>
+    <div class="mb-3 text-center">
+      {{ form.password }}
+    </div>
+    <button type="submit" class="btn btn-primary d-block mx-auto">Iniciar sesión</button>
+  </form>
+</div>
+<link rel="stylesheet" type="text/css" href="{% static 'proTrack/login.css' %}">
+{% endblock %}

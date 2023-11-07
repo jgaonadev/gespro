@@ -1,0 +1,19 @@
+/* Estilo para el título */
+h2 {
+  text-align: center; /* Centra horizontalmente */
+  margin-bottom: 20px; /* Agrega espacio abajo del título */
+}
+
+/* Estilo para las cajas de texto */
+input[type="text"],
+input[type="password"] {
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  padding: 10px; /* Añade relleno para un aspecto más espaciado */
+  margin: 0 auto 15px -10px; /* Agrega espacio en la parte inferior y centra horizontalmente */
+}
+
+/* Estilo para el botón */
+button {
+  display: block; /* Convierte el botón en un bloque para centrarlo horizontalmente */
+  margin: 0 auto; /* Centra horizontalmente */
+}

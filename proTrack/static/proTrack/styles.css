@@ -1,0 +1,36 @@
+/* styles.css */
+
+/* Estilo para el contenedor de la caja */
+.login-box {
+  max-width: 400px;
+  margin: 200px auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  align-content: center;
+}
+
+/* Estilo para el formulario dentro de la caja */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo para los campos de entrada (input) */
+.login-form input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Estilo para el botón de inicio de sesión */
+.login-form button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

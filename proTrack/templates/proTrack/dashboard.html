@@ -1,0 +1,25 @@
+{% extends 'proTrack/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-container">
+  <div class="dashboard-menu">
+    <ul>
+      <li><a href="{% url 'proTrack:dashboard' %}">Dashboard</a></li>
+{#      <li><a href="{% url 'proTrack:reportes' %}">Reportes</a></li>#}
+{#      <li><a href="{% url 'proTrack:configuracion' %}">Configuración</a></li>#}
+      <!-- Agrega más opciones de menú según tus necesidades -->
+    </ul>
+  </div>
+
+  <div class="dashboard-content">
+    <!-- Contenido del dashboard -->
+    <h2>Bienvenido al Dashboard</h2>
+    <p>Este es un ejemplo de contenido para tu panel de control.</p>
+
+    <!-- Puedes agregar secciones, gráficos, tablas, etc., en el contenido del dashboard. -->
+
+  </div>
+</div>
+<link rel="stylesheet" type="text/css" href="{% static 'proTrack/dashboard.css' %}">
+{% endblock %}
