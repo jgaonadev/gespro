@@ -2,24 +2,227 @@
 {% load static %}
 
 {% block content %}
-<div class="dashboard-container">
-  <div class="dashboard-menu">
-    <ul>
-      <li><a href="{% url 'proTrack:dashboard' %}">Dashboard</a></li>
-{#      <li><a href="{% url 'proTrack:reportes' %}">Reportes</a></li>#}
-{#      <li><a href="{% url 'proTrack:configuracion' %}">Configuración</a></li>#}
-      <!-- Agrega más opciones de menú según tus necesidades -->
-    </ul>
-  </div>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto);
 
-  <div class="dashboard-content">
-    <!-- Contenido del dashboard -->
-    <h2>Bienvenido al Dashboard</h2>
-    <p>Este es un ejemplo de contenido para tu panel de control.</p>
+        body {
+            font-family: Roboto, sans-serif;
+        }
 
-    <!-- Puedes agregar secciones, gráficos, tablas, etc., en el contenido del dashboard. -->
+    </style>
+    <div class="container-fluid">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary"
+             style="margin-left: -12px; padding-left: 15px; margin-right: -12px; padding-right: 15px">
+            <a class="navbar-brand" href="#">GesPro</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Documents</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-  </div>
-</div>
-<link rel="stylesheet" type="text/css" href="{% static 'proTrack/dashboard.css' %}">
+        <!-- Sidebar -->
+        <div class="row">
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar" style="height:  95vh">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                Calculations
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                New Documents
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Orders
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">KPI 1</h5>
+                                <div id="chart" style="height: 280px;">
+                                </div>
+                                <p class="card-text">Valor: 280</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">KPI 2</h5>
+                                <div id="chart2" style="height: 280px;">
+                                </div>
+                                <p class="card-text">Valor: 456</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">KPI 3</h5>
+                                <div id="chart3" style="height: 280px;">
+                                </div>
+                                <p class="card-text">Valor: 789</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">KPI 4</h5>
+                                <div id="chart4" style="height: 293px;">
+                                </div>
+                                <p class="card-text">Valor: 1011</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        // Gráfico 1
+        let options = {
+            chart: {
+                height: 280,
+                type: "area"
+            },
+            dataLabels: {
+                enabled: false
+            },
+            series: [
+                {
+                    name: "Series 1",
+                    data: [45, 52, 38, 45, 19, 23, 2]
+                }
+            ],
+            fill: {
+                type: "gradient",
+                gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.7,
+                    opacityTo: 0.9,
+                    stops: [0, 90, 100]
+                }
+            },
+            xaxis: {
+                categories: [
+                    "01 Jan",
+                    "02 Jan",
+                    "03 Jan",
+                    "04 Jan",
+                    "05 Jan",
+                    "06 Jan",
+                    "07 Jan"
+                ]
+            }
+        };
+
+        let chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+
+        // Gráfico 2
+        let options2 = {
+            chart: {
+                height: 280,
+                type: "bar"
+            },
+            dataLabels: {
+                enabled: false
+            },
+            series: [
+                {
+                    name: "Series 2",
+                    data: [30, 40, 25, 35, 50, 10, 5]
+                }
+            ],
+            xaxis: {
+                categories: [
+                    "01 Jan",
+                    "02 Jan",
+                    "03 Jan",
+                    "04 Jan",
+                    "05 Jan",
+                    "06 Jan",
+                    "07 Jan"
+                ]
+            }
+        };
+
+        let chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
+        chart2.render();
+
+        // Gráfico 3
+        let options3 = {
+            chart: {
+                height: 280,
+                type: "line"
+            },
+            dataLabels: {
+                enabled: false
+            },
+            series: [
+                {
+                    name: "Series 3",
+                    data: [10, 20, 30, 40, 50, 60, 70]
+                }
+            ],
+            xaxis: {
+                categories: [
+                    "01 Jan",
+                    "02 Jan",
+                    "03 Jan",
+                    "04 Jan",
+                    "05 Jan",
+                    "06 Jan",
+                    "07 Jan"
+                ]
+            }
+        };
+
+        let chart3 = new ApexCharts(document.querySelector("#chart3"), options3);
+        chart3.render();
+
+        // Gráfico 4
+        let options4 = {
+            chart: {
+                height: 280,
+                type: "pie"
+            },
+            labels: ["A", "B", "C", "D", "E", "F", "G"],
+            series: [30, 25, 20, 10, 5, 5, 5]
+        };
+
+        let chart4 = new ApexCharts(document.querySelector("#chart4"), options4);
+        chart4.render();
+    </script>
 {% endblock %}
